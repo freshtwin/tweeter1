@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'bootstrap4', # newSS
+
     'users', # new
     'tweets', # new
 ]
@@ -60,6 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR, 'templates')), ], # new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +75,8 @@ TEMPLATES = [
         },
     },
 ]
+
+BOOTSTRAP4 = { 'include_jquery': True } # new
 
 WSGI_APPLICATION = 'tweeter_app.wsgi.application'
 
