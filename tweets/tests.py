@@ -17,7 +17,7 @@ class TweetTests(TestCase):
             user=self.user,
         )
 
-    def test_tweet_string(self):
+    def test_string_representation(self):
         tweet = Tweet(body='A sample tweet')
         self.assertEqual(str(tweet), tweet.body)
 
@@ -34,6 +34,6 @@ class TweetTests(TestCase):
     def test_tweet_create_view(self):
         self.client.force_login(self.user) # new
         response = self.client.post(reverse('tweet_new'),
-            {'body': 'New tweet'}, follow=True) # updated
+            {'body': 'New tweet'}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'New tweet')
