@@ -78,6 +78,8 @@ BOOTSTRAP4 = {'include_jquery': True}  # new
 LOGIN_REDIRECT_URL = 'home'  # new
 LOGOUT_REDIRECT_URL = 'home'  # new
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 WSGI_APPLICATION = 'tweeter_app.wsgi.application'
 
 
