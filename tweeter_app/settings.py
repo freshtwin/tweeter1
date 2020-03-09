@@ -34,16 +34,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # new
 
+    'rest_framework', # new
+    'rest_framework.authtoken', # new
+    'allauth', # new
+    'allauth.account', # new
+    'allauth.socialaccount', # new
+    'rest_auth', # new
+    'rest_auth.registration', # new
     'bootstrap4',  # new
     'bootstrap_datepicker_plus',  # new
 
 
     'users',  # new
     'tweets',  # newpython manage.py runserver
+    'api', # new
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'  # new
+
+SITE_ID = 1 # new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,6 +93,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 WSGI_APPLICATION = 'tweeter_app.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        # 'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [ # new
+        'rest_framework.authentication.TokenAuthentication', # new
+        'rest_framework.authentication.SessionAuthentication', # new
+],
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
